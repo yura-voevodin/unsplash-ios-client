@@ -15,6 +15,16 @@
 		DE1335312376E07F00F55C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE13352F2376E07F00F55C45 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DE13355223774ED600F55C45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DE13354323774ED400F55C45;
+			remoteInfo = UnsplashKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		DE1335212376E07900F55C45 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE1335242376E07900F55C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,7 @@
 		DE13352D2376E07F00F55C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE1335302376E07F00F55C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE1335322376E07F00F55C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UnsplashKit.xcodeproj; path = ../UnsplashKit/UnsplashKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +51,7 @@
 		DE1335182376E07900F55C45 = {
 			isa = PBXGroup;
 			children = (
+				DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */,
 				DE1335232376E07900F55C45 /* Unsplash */,
 				DE1335222376E07900F55C45 /* Products */,
 			);
@@ -65,6 +77,14 @@
 				DE1335322376E07F00F55C45 /* Info.plist */,
 			);
 			path = Unsplash;
+			sourceTree = "<group>";
+		};
+		DE13354F23774ED400F55C45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE13355323774ED600F55C45 /* UnsplashKit.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,12 +133,28 @@
 			mainGroup = DE1335182376E07900F55C45;
 			productRefGroup = DE1335222376E07900F55C45 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DE13354F23774ED400F55C45 /* Products */;
+					ProjectRef = DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DE1335202376E07900F55C45 /* Unsplash */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DE13355323774ED600F55C45 /* UnsplashKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UnsplashKit.framework;
+			remoteRef = DE13355223774ED600F55C45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DE13351F2376E07900F55C45 /* Resources */ = {
