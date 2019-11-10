@@ -53,7 +53,7 @@ extension UnsplashKit {
             // Headers
             let configuredRequest = configure(urlRequest)
             
-            return request
+            return configuredRequest
         }
         
         /// Configure an URLRequest with headers

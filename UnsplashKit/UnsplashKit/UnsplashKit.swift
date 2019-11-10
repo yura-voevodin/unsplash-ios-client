@@ -9,7 +9,7 @@
 import Foundation
 
 /// Wrapper for this framework
-struct UnsplashKit {
+public struct UnsplashKit {
     
     static let baseURL = "https://api.unsplash.com/"
     
@@ -17,7 +17,7 @@ struct UnsplashKit {
     
     static private(set) var accessKey = ""
     
-    static func setup(accessKey: String) {
+    public static func setup(accessKey: String) {
         self.accessKey = accessKey
     }
 }

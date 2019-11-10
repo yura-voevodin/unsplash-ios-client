@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import UnsplashKit
 
 class ViewController: UIViewController {
 
+    // MARK: - View life cycle
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+      super.viewDidLoad()
+
+      setup()
     }
 
-
+    private func setup() {
+        UnsplashKit.setup(accessKey: "")
+        requestPhotos()
+    }
+    
+    // MARK: - Photos
+    
+    private func requestPhotos() {
+        UnsplashKit.APIClient.photos(page: 1) { (photos) in
+            DispatchQueue.main.async {
+                print(photos)
+            }
+        }
+    }
 }
 

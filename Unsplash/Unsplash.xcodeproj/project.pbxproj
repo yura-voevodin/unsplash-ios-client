@@ -13,6 +13,8 @@
 		DE13352C2376E07900F55C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE13352A2376E07900F55C45 /* Main.storyboard */; };
 		DE13352E2376E07F00F55C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE13352D2376E07F00F55C45 /* Assets.xcassets */; };
 		DE1335312376E07F00F55C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE13352F2376E07F00F55C45 /* LaunchScreen.storyboard */; };
+		DE3827322378A9FB002E612A /* UnsplashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE13355323774ED600F55C45 /* UnsplashKit.framework */; };
+		DE3827332378A9FB002E612A /* UnsplashKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE13355323774ED600F55C45 /* UnsplashKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +26,20 @@
 			remoteInfo = UnsplashKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DE3827342378A9FB002E612A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DE3827332378A9FB002E612A /* UnsplashKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DE1335212376E07900F55C45 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3827322378A9FB002E612A /* UnsplashKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +71,7 @@
 				DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */,
 				DE1335232376E07900F55C45 /* Unsplash */,
 				DE1335222376E07900F55C45 /* Products */,
+				DE3827302378A9FB002E612A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +105,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DE3827302378A9FB002E612A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -97,6 +122,7 @@
 				DE13351D2376E07900F55C45 /* Sources */,
 				DE13351E2376E07900F55C45 /* Frameworks */,
 				DE13351F2376E07900F55C45 /* Resources */,
+				DE3827342378A9FB002E612A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
