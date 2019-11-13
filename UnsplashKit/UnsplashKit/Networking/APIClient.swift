@@ -10,24 +10,25 @@ import Foundation
 
 public extension UnsplashKit {
     
-    public class APIClient {
+    class APIClient {
         
-        public static func photos(page: Int, _ completion: @escaping ([Photo]) -> ()) {
-            let request = Request(kind: .photos)
+        public static func photos(page: Int, _ completion: @escaping (Result<[Photo], Error>) -> ()) {
+            let networkRequest = Request(kind: .photos)
+            var queryItems: [URLQueryItem] = []
             
-            let dataTask = URLSession.shared.dataTask(with: request.buildURLRequest()) { (data, response, error) in
-                if let _ = error {
-                    completion([])
+            // Items per page
+            queryItems.append(URLQueryItem(name: "per_page", value: "30"))
+            
+            let request = networkRequest.buildURLRequest(items: queryItems)
+            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
                 } else if let data = data {
                     do {
-                        let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                        print(jsonObject)
-                        debugPrint(jsonObject)
-//                        let json = jsonObject as! [String: Any]
                         let photos = try JSONDecoder().decode([Photo].self, from: data)
-                        completion(photos)
+                        completion(.success(photos))
                     } catch {
-                        completion([])
+                        completion(.failure(error))
                     }
                 }
             }

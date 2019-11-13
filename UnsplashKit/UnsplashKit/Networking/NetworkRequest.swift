@@ -44,9 +44,10 @@ extension UnsplashKit {
         }
         
         /// Build an URLRequest
-        public func buildURLRequest() -> URLRequest {
+        public func buildURLRequest(items: [URLQueryItem]) -> URLRequest {
             // Request
-            let urlComponents = baseURLComponents()
+            var urlComponents = baseURLComponents()
+            urlComponents.queryItems = items
             let url = urlComponents.url?.appendingPathComponent(path)
             let urlRequest = URLRequest(url: url!)
             

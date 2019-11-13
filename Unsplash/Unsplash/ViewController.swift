@@ -21,17 +21,36 @@ class ViewController: UIViewController {
 
     private func setup() {
         UnsplashKit.setup(accessKey: "")
+        
+        configureDataSource()
         requestPhotos()
+    }
+    
+    // MARK: - Data Source
+    
+    var photosDataSource: UnsplashKit.PhotosDataSource!
+    
+    private func configureDataSource() {
+        photosDataSource = UnsplashKit.PhotosDataSource()
+        photosDataSource.delegate = self
     }
     
     // MARK: - Photos
     
     private func requestPhotos() {
-        UnsplashKit.APIClient.photos(page: 1) { (photos) in
-            DispatchQueue.main.async {
-                print(photos)
-            }
-        }
+        photosDataSource.requestNextPage()
     }
 }
 
+// MARK: - PhotosDataSourceDelegate
+
+extension ViewController: PhotosDataSourceDelegate {
+    
+    func didReceive(_ error: Error) {
+        
+    }
+    
+    func didLoadPhotos() {
+        
+    }
+}

@@ -12,8 +12,22 @@
 		DE133557237750B500F55C45 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE133556237750B500F55C45 /* NetworkRequest.swift */; };
 		DE1335592377555000F55C45 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335582377555000F55C45 /* APIClient.swift */; };
 		DE13355B2377560200F55C45 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13355A2377560200F55C45 /* Request.swift */; };
+		DE382737237C7CA3002E612A /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE382736237C7CA3002E612A /* KeyedDecodingContainer.swift */; };
+		DE38273F237C7D47002E612A /* UnsplashKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38273E237C7D47002E612A /* UnsplashKitTests.swift */; };
+		DE382741237C7D47002E612A /* UnsplashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE13354323774ED400F55C45 /* UnsplashKit.framework */; };
 		DE3C0B2D2378A6BA00A8275D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C0B2C2378A6BA00A8275D /* Photo.swift */; };
+		DE98B636237C828000394F56 /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B635237C828000394F56 /* PhotosDataSource.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE382742237C7D47002E612A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE13353A23774ED400F55C45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE13354223774ED400F55C45;
+			remoteInfo = UnsplashKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DE13354323774ED400F55C45 /* UnsplashKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnsplashKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,7 +37,12 @@
 		DE133556237750B500F55C45 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		DE1335582377555000F55C45 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		DE13355A2377560200F55C45 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		DE382736237C7CA3002E612A /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		DE38273C237C7D46002E612A /* UnsplashKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE38273E237C7D47002E612A /* UnsplashKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashKitTests.swift; sourceTree = "<group>"; };
+		DE382740237C7D47002E612A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE3C0B2C2378A6BA00A8275D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		DE98B635237C828000394F56 /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +53,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE382739237C7D46002E612A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE382741237C7D47002E612A /* UnsplashKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				DE13354523774ED400F55C45 /* UnsplashKit */,
+				DE38273D237C7D47002E612A /* UnsplashKitTests */,
 				DE13354423774ED400F55C45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				DE13354323774ED400F55C45 /* UnsplashKit.framework */,
+				DE38273C237C7D46002E612A /* UnsplashKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,9 +89,28 @@
 				DE13354723774ED400F55C45 /* Info.plist */,
 				DE13355423774F7E00F55C45 /* UnsplashKit.swift */,
 				DE3C0B2A2378A68600A8275D /* Data Models */,
+				DE382735237C7C8A002E612A /* Extensions */,
 				DE3C0B2B2378A68F00A8275D /* Networking */,
+				DE98B635237C828000394F56 /* PhotosDataSource.swift */,
 			);
 			path = UnsplashKit;
+			sourceTree = "<group>";
+		};
+		DE382735237C7C8A002E612A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE382736237C7CA3002E612A /* KeyedDecodingContainer.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE38273D237C7D47002E612A /* UnsplashKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE38273E237C7D47002E612A /* UnsplashKitTests.swift */,
+				DE382740237C7D47002E612A /* Info.plist */,
+			);
+			path = UnsplashKitTests;
 			sourceTree = "<group>";
 		};
 		DE3C0B2A2378A68600A8275D /* Data Models */ = {
@@ -115,18 +163,40 @@
 			productReference = DE13354323774ED400F55C45 /* UnsplashKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		DE38273B237C7D46002E612A /* UnsplashKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE382744237C7D47002E612A /* Build configuration list for PBXNativeTarget "UnsplashKitTests" */;
+			buildPhases = (
+				DE382738237C7D46002E612A /* Sources */,
+				DE382739237C7D46002E612A /* Frameworks */,
+				DE38273A237C7D46002E612A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE382743237C7D47002E612A /* PBXTargetDependency */,
+			);
+			name = UnsplashKitTests;
+			productName = UnsplashKitTests;
+			productReference = DE38273C237C7D46002E612A /* UnsplashKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DE13353A23774ED400F55C45 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Yura Voevodin";
 				TargetAttributes = {
 					DE13354223774ED400F55C45 = {
 						CreatedOnToolsVersion = 11.2.1;
 						LastSwiftMigration = 1120;
+					};
+					DE38273B237C7D46002E612A = {
+						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
 			};
@@ -144,12 +214,20 @@
 			projectRoot = "";
 			targets = (
 				DE13354223774ED400F55C45 /* UnsplashKit */,
+				DE38273B237C7D46002E612A /* UnsplashKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DE13354123774ED400F55C45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE38273A237C7D46002E612A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -164,6 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE133557237750B500F55C45 /* NetworkRequest.swift in Sources */,
+				DE98B636237C828000394F56 /* PhotosDataSource.swift in Sources */,
+				DE382737237C7CA3002E612A /* KeyedDecodingContainer.swift in Sources */,
 				DE13355B2377560200F55C45 /* Request.swift in Sources */,
 				DE13355523774F7E00F55C45 /* UnsplashKit.swift in Sources */,
 				DE1335592377555000F55C45 /* APIClient.swift in Sources */,
@@ -171,7 +251,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE382738237C7D46002E612A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE38273F237C7D47002E612A /* UnsplashKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE382743237C7D47002E612A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE13354223774ED400F55C45 /* UnsplashKit */;
+			targetProxy = DE382742237C7D47002E612A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DE13354923774ED400F55C45 /* Debug */ = {
@@ -345,6 +441,42 @@
 			};
 			name = Release;
 		};
+		DE382745237C7D47002E612A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2BF9ZE9NW;
+				INFOPLIST_FILE = UnsplashKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voevodin-yura.UnsplashKitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE382746237C7D47002E612A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M2BF9ZE9NW;
+				INFOPLIST_FILE = UnsplashKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voevodin-yura.UnsplashKitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -362,6 +494,15 @@
 			buildConfigurations = (
 				DE13354C23774ED400F55C45 /* Debug */,
 				DE13354D23774ED400F55C45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE382744237C7D47002E612A /* Build configuration list for PBXNativeTarget "UnsplashKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE382745237C7D47002E612A /* Debug */,
+				DE382746237C7D47002E612A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
