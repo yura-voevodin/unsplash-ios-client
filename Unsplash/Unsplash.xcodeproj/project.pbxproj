@@ -15,6 +15,11 @@
 		DE1335312376E07F00F55C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE13352F2376E07F00F55C45 /* LaunchScreen.storyboard */; };
 		DE3827322378A9FB002E612A /* UnsplashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE13355323774ED600F55C45 /* UnsplashKit.framework */; };
 		DE3827332378A9FB002E612A /* UnsplashKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE13355323774ED600F55C45 /* UnsplashKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE98B63E237C95B500394F56 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B63C237C95B500394F56 /* PhotoCollectionViewCell.swift */; };
+		DE98B63F237C95B500394F56 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE98B63D237C95B500394F56 /* PhotoCollectionViewCell.xib */; };
+		DE98B642237C964000394F56 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B641237C964000394F56 /* UICollectionView.swift */; };
+		DE98B646237C96B200394F56 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B645237C96B200394F56 /* ReusableView.swift */; };
+		DE98B648237C971900394F56 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B647237C971900394F56 /* NibLoadableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +29,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = DE13354323774ED400F55C45;
 			remoteInfo = UnsplashKit;
+		};
+		DE98B63A237C959700394F56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DE38273C237C7D46002E612A;
+			remoteInfo = UnsplashKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,6 +63,11 @@
 		DE1335302376E07F00F55C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE1335322376E07F00F55C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE13354E23774ED400F55C45 /* UnsplashKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UnsplashKit.xcodeproj; path = ../UnsplashKit/UnsplashKit.xcodeproj; sourceTree = "<group>"; };
+		DE98B63C237C95B500394F56 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE98B63D237C95B500394F56 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		DE98B641237C964000394F56 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		DE98B645237C96B200394F56 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		DE98B647237C971900394F56 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +103,8 @@
 		DE1335232376E07900F55C45 /* Unsplash */ = {
 			isa = PBXGroup;
 			children = (
+				DE98B643237C969B00394F56 /* UI Subclasses */,
+				DE98B640237C95C700394F56 /* Extensions */,
 				DE1335242376E07900F55C45 /* AppDelegate.swift */,
 				DE1335262376E07900F55C45 /* SceneDelegate.swift */,
 				DE1335282376E07900F55C45 /* ViewController.swift */,
@@ -101,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				DE13355323774ED600F55C45 /* UnsplashKit.framework */,
+				DE98B63B237C959700394F56 /* UnsplashKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +130,41 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE98B637237C959600394F56 /* Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE98B63C237C95B500394F56 /* PhotoCollectionViewCell.swift */,
+				DE98B63D237C95B500394F56 /* PhotoCollectionViewCell.xib */,
+			);
+			path = "Collection View Cell";
+			sourceTree = "<group>";
+		};
+		DE98B640237C95C700394F56 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE98B641237C964000394F56 /* UICollectionView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE98B643237C969B00394F56 /* UI Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				DE98B637237C959600394F56 /* Collection View Cell */,
+				DE98B644237C96A500394F56 /* Views */,
+			);
+			path = "UI Subclasses";
+			sourceTree = "<group>";
+		};
+		DE98B644237C96A500394F56 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE98B645237C96B200394F56 /* ReusableView.swift */,
+				DE98B647237C971900394F56 /* NibLoadableView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +235,13 @@
 			remoteRef = DE13355223774ED600F55C45 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		DE98B63B237C959700394F56 /* UnsplashKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnsplashKitTests.xctest;
+			remoteRef = DE98B63A237C959700394F56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -188,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1335312376E07F00F55C45 /* LaunchScreen.storyboard in Resources */,
+				DE98B63F237C95B500394F56 /* PhotoCollectionViewCell.xib in Resources */,
 				DE13352E2376E07F00F55C45 /* Assets.xcassets in Resources */,
 				DE13352C2376E07900F55C45 /* Main.storyboard in Resources */,
 			);
@@ -200,7 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE98B642237C964000394F56 /* UICollectionView.swift in Sources */,
 				DE1335292376E07900F55C45 /* ViewController.swift in Sources */,
+				DE98B648237C971900394F56 /* NibLoadableView.swift in Sources */,
+				DE98B63E237C95B500394F56 /* PhotoCollectionViewCell.swift in Sources */,
+				DE98B646237C96B200394F56 /* ReusableView.swift in Sources */,
 				DE1335252376E07900F55C45 /* AppDelegate.swift in Sources */,
 				DE1335272376E07900F55C45 /* SceneDelegate.swift in Sources */,
 			);

@@ -10,6 +10,12 @@ import UIKit
 import UnsplashKit
 
 class ViewController: UIViewController {
+    
+    typealias Photo = UnsplashKit.Photo
+    
+    enum Section {
+        case main
+    }
 
     // MARK: - View life cycle
 
@@ -20,9 +26,17 @@ class ViewController: UIViewController {
     }
 
     private func setup() {
-        UnsplashKit.setup(accessKey: "")
+        // Setup
+        UnsplashKit.setup(accessKey: "395000f31162ea8ce8d171ca3ab2368578273b0a88563867f9e36b5bdbaf4c8a")
         
+        // Photos data source
+        configurePhotosDataSource()
+        
+        // Collection
+        configureCollectionView()
         configureDataSource()
+        
+        // Request
         requestPhotos()
     }
     
@@ -30,9 +44,56 @@ class ViewController: UIViewController {
     
     var photosDataSource: UnsplashKit.PhotosDataSource!
     
-    private func configureDataSource() {
+    private func configurePhotosDataSource() {
         photosDataSource = UnsplashKit.PhotosDataSource()
         photosDataSource.delegate = self
+    }
+    
+    // MARK: - Collection view
+    
+    var dataSource: UICollectionViewDiffableDataSource<Section, Photo>! = nil
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private func configureCollectionView() {
+        collectionView.collectionViewLayout = createLayout()
+        collectionView.register(PhotoCollectionViewCell.self)
+    }
+    
+    func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalWidth(0.33))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Photo>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, photo: Photo) -> UICollectionViewCell? in
+            
+            // Get a cell
+            let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as PhotoCollectionViewCell
+
+            // TODO: Configure cell
+            cell.imageView.backgroundColor = .white
+
+            // Return the cell
+            return cell
+        }
+
+        // initial data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Photo>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(photosDataSource.photos)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
     
     // MARK: - Photos
@@ -51,6 +112,9 @@ extension ViewController: PhotosDataSourceDelegate {
     }
     
     func didLoadPhotos() {
-        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Photo>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(photosDataSource.photos)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

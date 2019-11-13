@@ -10,7 +10,7 @@ import Foundation
 
 extension UnsplashKit {
     
-    public struct Photo: Codable {
+    public struct Photo: Codable, Hashable {
         
         // MARK: - Types
         
