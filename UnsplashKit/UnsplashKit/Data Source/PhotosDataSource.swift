@@ -10,7 +10,7 @@ import Foundation
 
 public protocol PhotosDataSourceDelegate: class {
     func didReceive(_ error: Error)
-    func didLoadPhotos()
+    func didLoadPhotos(_ newPhotos: [UnsplashKit.Photo])
 }
 
 public extension UnsplashKit {
@@ -30,7 +30,7 @@ public extension UnsplashKit {
         
         public func requestNextPage() {
             guard canFetchMore else {
-                delegate?.didLoadPhotos()
+                delegate?.didLoadPhotos([])
                 return
             }
             APIClient.photos(page: currentPage) { (result) in
@@ -57,7 +57,7 @@ public extension UnsplashKit {
                 if currentPage >= 10 {
                     canFetchMore = false
                 }
-                delegate?.didLoadPhotos()
+                delegate?.didLoadPhotos(newPhotos)
             }
         }
     }

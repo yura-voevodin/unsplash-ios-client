@@ -12,6 +12,7 @@
 		DE133557237750B500F55C45 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE133556237750B500F55C45 /* NetworkRequest.swift */; };
 		DE1335592377555000F55C45 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1335582377555000F55C45 /* APIClient.swift */; };
 		DE13355B2377560200F55C45 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE13355A2377560200F55C45 /* Request.swift */; };
+		DE1CE5CB237DECC700FCB86E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1CE5CA237DECC700FCB86E /* ImageDownloader.swift */; };
 		DE382737237C7CA3002E612A /* KeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE382736237C7CA3002E612A /* KeyedDecodingContainer.swift */; };
 		DE38273F237C7D47002E612A /* UnsplashKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38273E237C7D47002E612A /* UnsplashKitTests.swift */; };
 		DE382741237C7D47002E612A /* UnsplashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE13354323774ED400F55C45 /* UnsplashKit.framework */; };
@@ -37,6 +38,7 @@
 		DE133556237750B500F55C45 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		DE1335582377555000F55C45 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		DE13355A2377560200F55C45 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		DE1CE5CA237DECC700FCB86E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		DE382736237C7CA3002E612A /* KeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		DE38273C237C7D46002E612A /* UnsplashKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE38273E237C7D47002E612A /* UnsplashKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashKitTests.swift; sourceTree = "<group>"; };
@@ -89,11 +91,28 @@
 				DE13354723774ED400F55C45 /* Info.plist */,
 				DE13355423774F7E00F55C45 /* UnsplashKit.swift */,
 				DE3C0B2A2378A68600A8275D /* Data Models */,
+				DE1CE5C9237DECA800FCB86E /* Data Source */,
 				DE382735237C7C8A002E612A /* Extensions */,
 				DE3C0B2B2378A68F00A8275D /* Networking */,
-				DE98B635237C828000394F56 /* PhotosDataSource.swift */,
+				DE1CE5C8237DEC9600FCB86E /* Services */,
 			);
 			path = UnsplashKit;
+			sourceTree = "<group>";
+		};
+		DE1CE5C8237DEC9600FCB86E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DE1CE5CA237DECC700FCB86E /* ImageDownloader.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DE1CE5C9237DECA800FCB86E /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				DE98B635237C828000394F56 /* PhotosDataSource.swift */,
+			);
+			path = "Data Source";
 			sourceTree = "<group>";
 		};
 		DE382735237C7C8A002E612A /* Extensions */ = {
@@ -243,6 +262,7 @@
 			files = (
 				DE133557237750B500F55C45 /* NetworkRequest.swift in Sources */,
 				DE98B636237C828000394F56 /* PhotosDataSource.swift in Sources */,
+				DE1CE5CB237DECC700FCB86E /* ImageDownloader.swift in Sources */,
 				DE382737237C7CA3002E612A /* KeyedDecodingContainer.swift in Sources */,
 				DE13355B2377560200F55C45 /* Request.swift in Sources */,
 				DE13355523774F7E00F55C45 /* UnsplashKit.swift in Sources */,

@@ -18,6 +18,7 @@ public extension UnsplashKit {
             
             // Items per page
             queryItems.append(URLQueryItem(name: "per_page", value: "30"))
+            queryItems.append(URLQueryItem(name: "page", value: "\(page)"))
             
             let request = networkRequest.buildURLRequest(items: queryItems)
             let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
