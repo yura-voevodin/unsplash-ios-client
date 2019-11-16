@@ -4,10 +4,10 @@ iOS Photos app based on Unsplash API
 ## Default state
 Photos: https://unsplash.com/documentation#photos
 
-- [ ] Display a grid of pictures. ( request #1) 
-- [ ] The number of pictures in a row - 3.
-- [ ] Implement pagination in the list (no more than 10 pages)
-- [ ] Number of pictures per page - 30.
+- [x] Display a grid of pictures. ( request #1) 
+- [x] The number of pictures in a row - 3.
+- [x] Implement pagination in the list (no more than 10 pages)
+- [x] Number of pictures per page - 30.
 
 ## Search by name
 Search: https://unsplash.com/documentation#search
