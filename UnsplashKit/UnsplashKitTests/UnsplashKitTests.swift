@@ -13,12 +13,25 @@ class UnsplashKitTests: XCTestCase {
     
     override class func setUp() {
         // TODO: Add access key
-        UnsplashKit.setup(accessKey: "")
+        UnsplashKit.setup(accessKey: "395000f31162ea8ce8d171ca3ab2368578273b0a88563867f9e36b5bdbaf4c8a")
     }
 
     func testPhotosRequest() {
         let exp = expectation(description: "Photos")
         UnsplashKit.APIClient.photos(page: 1) { (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success:
+                exp.fulfill()
+            }
+        }
+        wait(for: [exp], timeout: 5)
+    }
+    
+    func testSearchRequest() {
+        let exp = expectation(description: "Photos")
+        UnsplashKit.APIClient.search("nature", page: 1) { (result) in
             switch result {
             case .failure(let error):
                 print(error)

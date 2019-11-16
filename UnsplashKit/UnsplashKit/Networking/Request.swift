@@ -14,7 +14,7 @@ extension UnsplashKit.APIClient {
         
         public enum Kind {
             case photos
-            case search(query: String)
+            case search
         }
         
         override var method: String {
@@ -30,8 +30,8 @@ extension UnsplashKit.APIClient {
             switch kind {
             case .photos:
                 return "/photos"
-            case .search(let query):
-                return "/search/photos?query=\(query)"
+            case .search:
+                return "/search/photos"
             }
         }
         
