@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wZd-kx-80L">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Unsplash-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Unsplash" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,13 +36,63 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Unsplash" id="2cS-Fg-brH"/>
                     <connections>
                         <outlet property="collectionView" destination="hGF-nt-TDh" id="Yol-U2-Q7e"/>
+                        <segue destination="y7z-C3-N9L" kind="show" identifier="showPhoto" id="Deo-YO-zu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="t0s-ak-5j4">
+            <objects>
+                <viewController id="y7z-C3-N9L" customClass="PhotoViewController" customModule="Unsplash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lye-4i-I1s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BZ2-gd-l9e">
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BZ2-gd-l9e" firstAttribute="top" secondItem="MIc-V2-GsV" secondAttribute="top" id="BXz-sT-769"/>
+                            <constraint firstItem="MIc-V2-GsV" firstAttribute="bottom" secondItem="BZ2-gd-l9e" secondAttribute="bottom" id="HwH-c3-gDS"/>
+                            <constraint firstItem="MIc-V2-GsV" firstAttribute="trailing" secondItem="BZ2-gd-l9e" secondAttribute="trailing" id="fSN-k7-dd3"/>
+                            <constraint firstItem="BZ2-gd-l9e" firstAttribute="leading" secondItem="MIc-V2-GsV" secondAttribute="leading" id="yUk-xg-2mE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MIc-V2-GsV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="udS-UB-6BK"/>
+                    <connections>
+                        <outlet property="imageView" destination="BZ2-gd-l9e" id="0Zz-8D-ls8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRc-dm-o85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2020" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vl5-O5-2rX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wZd-kx-80L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WjI-yg-jhG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="n3a-mS-8IY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWC-rM-VS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

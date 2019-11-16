@@ -98,10 +98,20 @@ class ViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
-    // MARK: - Photos
+    // MARK: - Navigation
     
-    private func requestPhotos() {
-        photosDataSource.requestNextPage()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+            
+        case "showPhoto":
+            let vc = segue.destination as? PhotoViewController
+            vc?.photo = sender as? Photo
+            
+        default:
+            break
+        }
     }
 }
 
@@ -130,5 +140,10 @@ extension ViewController: UICollectionViewDelegate {
         if indexPath.item == photosDataSource.photos.count - 10 {
             photosDataSource.requestNextPage()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photosDataSource.photos[indexPath.row]
+        performSegue(withIdentifier: "showPhoto", sender: photo)
     }
 }
