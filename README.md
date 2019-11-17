@@ -1,6 +1,9 @@
 # unsplash-ios-client
 iOS Photos app based on Unsplash API
 
+![Home](https://github.com/yura-voevodin/unsplash-ios-client/raw/master/Screenshots/Home.png)
+![Search](https://github.com/yura-voevodin/unsplash-ios-client/raw/master/Screenshots/Search.png)
+
 ## Default state
 Photos: https://unsplash.com/documentation#photos
 
