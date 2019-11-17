@@ -12,9 +12,9 @@ Photos: https://unsplash.com/documentation#photos
 ## Search by name
 Search: https://unsplash.com/documentation#search
 
-- [ ] Implement search. ( request #2) 
-- [ ] The request should be sent, if was entered more than three characters
-- [ ] The number of pictures in a row - 1.
+- [x] Implement search. ( request #2) 
+- [x] The request should be sent, if was entered more than three characters
+- [x] The number of pictures in a row - 1.
 - [ ] Needs implement the removing of pictures in the search mode. Deletion is relevant only for the current search result.
 
 ## General requirements
