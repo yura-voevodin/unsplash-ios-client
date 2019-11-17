@@ -18,5 +18,5 @@ Search: https://unsplash.com/documentation#search
 - [ ] Needs implement the removing of pictures in the search mode. Deletion is relevant only for the current search result.
 
 ## General requirements
-- [ ] By tap on the picture should shown it on full screen.
-- [ ] The Network module should be located in a separate framework.
+- [x] By tap on the picture should shown it on full screen.
+- [x] The Network module should be located in a separate framework.
