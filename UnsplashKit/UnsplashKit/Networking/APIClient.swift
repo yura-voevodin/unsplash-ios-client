@@ -21,6 +21,11 @@ public extension UnsplashKit {
             queryItems.append(URLQueryItem(name: "page", value: "\(page)"))
             
             let request = networkRequest.buildURLRequest(items: queryItems)
+            
+            print("""
+                \(request)
+                """)
+            
             let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     completion(.failure(error))
@@ -46,6 +51,11 @@ public extension UnsplashKit {
             queryItems.append(URLQueryItem(name: "page", value: "\(page)"))
             
             let request = networkRequest.buildURLRequest(items: queryItems)
+            
+            print("""
+                \(request)
+                """)
+            
             let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
                     completion(.failure(error))

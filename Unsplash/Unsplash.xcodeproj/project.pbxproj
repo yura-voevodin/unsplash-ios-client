@@ -21,6 +21,7 @@
 		DE98B642237C964000394F56 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B641237C964000394F56 /* UICollectionView.swift */; };
 		DE98B646237C96B200394F56 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B645237C96B200394F56 /* ReusableView.swift */; };
 		DE98B648237C971900394F56 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B647237C971900394F56 /* NibLoadableView.swift */; };
+		DED09E7E23819DEC00A1CF7A /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED09E7D23819DEC00A1CF7A /* SearchResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		DE98B641237C964000394F56 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		DE98B645237C96B200394F56 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		DE98B647237C971900394F56 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		DED09E7D23819DEC00A1CF7A /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				DE1335242376E07900F55C45 /* AppDelegate.swift */,
 				DE783A0F238097A5005B8E8E /* PhotoViewController.swift */,
 				DE1335262376E07900F55C45 /* SceneDelegate.swift */,
+				DED09E7D23819DEC00A1CF7A /* SearchResultsViewController.swift */,
 				DE1335282376E07900F55C45 /* ViewController.swift */,
 				DE13352D2376E07F00F55C45 /* Assets.xcassets */,
 				DE98B640237C95C700394F56 /* Extensions */,
@@ -273,6 +276,7 @@
 				DE98B646237C96B200394F56 /* ReusableView.swift in Sources */,
 				DE783A10238097A5005B8E8E /* PhotoViewController.swift in Sources */,
 				DE1335252376E07900F55C45 /* AppDelegate.swift in Sources */,
+				DED09E7E23819DEC00A1CF7A /* SearchResultsViewController.swift in Sources */,
 				DE1335272376E07900F55C45 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

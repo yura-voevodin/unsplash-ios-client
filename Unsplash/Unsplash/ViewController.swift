@@ -11,13 +11,15 @@ import UnsplashKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Types
+    
     typealias Photo = UnsplashKit.Photo
     
     enum Section {
         case main
     }
     
-    // MARK: - View life cycle
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,9 @@ class ViewController: UIViewController {
         // Configure cache
         UnsplashKit.ImageDownloader.configureCache()
         
+        // Search
+        configureSearchResultsController()
+        
         // Photos data source
         configurePhotosDataSource()
         
@@ -40,7 +45,14 @@ class ViewController: UIViewController {
         configureDataSource()
         
         // Frist page
-        photosDataSource.requestNextPage()
+        photosDataSource.requestPhotos()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // We want ourselves to be the delegate for this collection view so didSelectRowAtIndexPath(_:) is called for both controllers.
+        searchResultsViewController.collectionView.delegate = self
     }
     
     // MARK: - Data Source
@@ -113,6 +125,39 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    // MARK: - Search
+    
+    var searchController: UISearchController!
+    
+    var searchResultsViewController: SearchResultsViewController!
+    
+    var searchDataSource: UnsplashKit.SearchDataSource {
+        return searchResultsViewController.searchDataSource
+    }
+    
+    /// Sear Bar and Search Results Controller
+    private func configureSearchResultsController() {
+        searchResultsViewController = storyboard!.instantiateViewController(withIdentifier: "SearchResultsViewController") as? SearchResultsViewController
+        
+        // Setup the Search Controller.
+        searchController = UISearchController(searchResultsController: searchResultsViewController)
+        
+        // Add Search Controller to the navigation item.
+        navigationItem.searchController = searchController
+        
+        // Setup the Search Bar
+        searchController.searchBar.placeholder = NSLocalizedString("Search", comment: "Placeholder in search controller")
+        
+        definesPresentationContext = true
+        
+        searchController.isActive = true
+        searchController.searchBar.becomeFirstResponder()
+        searchController.searchResultsUpdater = self
+        
+        // Always visible search bar
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
 }
 
 // MARK: - PhotosDataSourceDelegate
@@ -120,7 +165,7 @@ class ViewController: UIViewController {
 extension ViewController: PhotosDataSourceDelegate {
     
     func didReceive(_ error: Error) {
-        
+        print(error)
     }
     
     func didLoadPhotos(_ newPhotos: [UnsplashKit.Photo]) {
@@ -136,14 +181,69 @@ extension ViewController: PhotosDataSourceDelegate {
 
 extension ViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == photosDataSource.photos.count - 10 {
-            photosDataSource.requestNextPage()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.collectionView {
+            let photo = photosDataSource.photos[indexPath.row]
+            performSegue(withIdentifier: "showPhoto", sender: photo)
+
+        } else if collectionView == searchResultsViewController.collectionView {
+            // Search results
+            let photo = searchDataSource.photos[indexPath.row]
+            performSegue(withIdentifier: "showPhoto", sender: photo)
         }
     }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension ViewController: UIScrollViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = photosDataSource.photos[indexPath.row]
-        performSegue(withIdentifier: "showPhoto", sender: photo)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if collectionView == scrollView {
+            if photosDataSource.isFetching {
+                return
+            }
+            let buffer: CGFloat = 55
+            let bottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height
+            let scrollPosition = scrollView.contentOffset.y
+            
+            // Reached the bottom of the collection view
+            if scrollPosition > bottom + buffer {
+              photosDataSource.requestPhotos()
+            }
+            
+        } else if searchResultsViewController.collectionView == scrollView {
+            if searchDataSource.isFetching {
+                return
+            }
+            let buffer: CGFloat = 55
+            let bottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height
+            let scrollPosition = scrollView.contentOffset.y
+            
+            // Reached the bottom of the collection view
+            if scrollPosition > bottom + buffer {
+              searchDataSource.search()
+            }
+        }
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension ViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // Strip out all the leading and trailing spaces.
+        guard let text = searchController.searchBar.text else { return }
+        let searchString = text.trimmingCharacters(in: .whitespaces)
+        
+        // Minimum 3 characters
+        guard searchString.count >= 3 else {
+            searchResultsViewController.resetSearchResults()
+            return
+        }
+        
+        // Perform search request
+        searchResultsViewController.search(by: searchString)
     }
 }

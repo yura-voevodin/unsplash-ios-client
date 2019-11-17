@@ -20,19 +20,23 @@ public extension UnsplashKit {
         public weak var delegate: PhotosDataSourceDelegate?
         private var canFetchMore = true
         private var currentPage: Int = 1
+        public var isFetching = false
         public var photos: [Photo] = []
         
         // MARK: - Init
         
         public init() {}
         
-        // MARK: - Request page
+        // MARK: - Request photos
         
-        public func requestNextPage() {
+        public func requestPhotos() {
             guard canFetchMore else {
                 delegate?.didLoadPhotos([])
                 return
             }
+            
+            isFetching = true
+            
             APIClient.photos(page: currentPage) { (result) in
                 DispatchQueue.main.async {
                     self.process(result)
@@ -58,7 +62,9 @@ public extension UnsplashKit {
                     canFetchMore = false
                 }
                 delegate?.didLoadPhotos(newPhotos)
+                
             }
+            isFetching = false
         }
     }
 }

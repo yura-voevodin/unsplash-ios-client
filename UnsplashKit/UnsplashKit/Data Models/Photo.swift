@@ -21,19 +21,17 @@ extension UnsplashKit {
         
         // MARK: - Properties
         
-        public let identifier: String
+        public let id = UUID().uuidString
         public let urls: [URLKind: URL]
         
         // MARK: - Decode
         
         enum CodingKeys: String, CodingKey {
-            case identifier = "id"
             case urls
         }
         
         public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            identifier = try container.decode(String.self, forKey: .identifier)
             urls = try container.decode([URLKind: URL].self, forKey: .urls)
         }
     }

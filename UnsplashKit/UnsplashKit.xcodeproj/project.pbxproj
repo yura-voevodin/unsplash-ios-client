@@ -18,6 +18,7 @@
 		DE382741237C7D47002E612A /* UnsplashKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE13354323774ED400F55C45 /* UnsplashKit.framework */; };
 		DE3C0B2D2378A6BA00A8275D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3C0B2C2378A6BA00A8275D /* Photo.swift */; };
 		DE98B636237C828000394F56 /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE98B635237C828000394F56 /* PhotosDataSource.swift */; };
+		DED09E822381A20A00A1CF7A /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED09E812381A20A00A1CF7A /* SearchDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		DE382740237C7D47002E612A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE3C0B2C2378A6BA00A8275D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		DE98B635237C828000394F56 /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
+		DED09E812381A20A00A1CF7A /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,7 @@
 				DE13354723774ED400F55C45 /* Info.plist */,
 				DE13355423774F7E00F55C45 /* UnsplashKit.swift */,
 				DE3C0B2A2378A68600A8275D /* Data Models */,
-				DE1CE5C9237DECA800FCB86E /* Data Source */,
+				DE1CE5C9237DECA800FCB86E /* Data Sources */,
 				DE382735237C7C8A002E612A /* Extensions */,
 				DE3C0B2B2378A68F00A8275D /* Networking */,
 				DE1CE5C8237DEC9600FCB86E /* Services */,
@@ -107,12 +109,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		DE1CE5C9237DECA800FCB86E /* Data Source */ = {
+		DE1CE5C9237DECA800FCB86E /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
 				DE98B635237C828000394F56 /* PhotosDataSource.swift */,
+				DED09E812381A20A00A1CF7A /* SearchDataSource.swift */,
 			);
-			path = "Data Source";
+			path = "Data Sources";
 			sourceTree = "<group>";
 		};
 		DE382735237C7C8A002E612A /* Extensions */ = {
@@ -263,6 +266,7 @@
 				DE133557237750B500F55C45 /* NetworkRequest.swift in Sources */,
 				DE98B636237C828000394F56 /* PhotosDataSource.swift in Sources */,
 				DE1CE5CB237DECC700FCB86E /* ImageDownloader.swift in Sources */,
+				DED09E822381A20A00A1CF7A /* SearchDataSource.swift in Sources */,
 				DE382737237C7CA3002E612A /* KeyedDecodingContainer.swift in Sources */,
 				DE13355B2377560200F55C45 /* Request.swift in Sources */,
 				DE13355523774F7E00F55C45 /* UnsplashKit.swift in Sources */,
