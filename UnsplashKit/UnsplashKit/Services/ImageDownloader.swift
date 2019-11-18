@@ -32,6 +32,8 @@ public extension UnsplashKit {
             guard task == nil else {
                 return
             }
+            isCancelled = false
+            
             let request = URLRequest(url: url)
             
             // Try to find image in cache
@@ -53,6 +55,15 @@ public extension UnsplashKit {
                 }
             })
             task?.resume()
+        }
+        
+        // MARK: - Cancel
+        
+        public private(set) var isCancelled = false
+        
+        public func calncel() {
+            isCancelled = true
+            task?.cancel()
         }
     }
 }

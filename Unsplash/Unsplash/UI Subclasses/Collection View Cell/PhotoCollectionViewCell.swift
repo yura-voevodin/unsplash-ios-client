@@ -24,6 +24,7 @@ class PhotoCollectionViewCell: UICollectionViewCell, NibLoadableView, ReusableVi
         super.prepareForReuse()
         
         imageView.image = nil
+        downloader.calncel()
     }
     
     // MARK: - Image
@@ -36,11 +37,13 @@ class PhotoCollectionViewCell: UICollectionViewCell, NibLoadableView, ReusableVi
     func update(with photo: UnsplashKit.Photo) {
         if let url = photo.urls[.regular] {
             downloader.download(with: url) { [weak self] (result) in
+                guard let strongSelf = self, strongSelf.downloader.isCancelled == false else { return }
+                
                 switch result {
                 case .failure:
-                    self?.imageView.image = nil
+                    strongSelf.imageView.image = nil
                 case .success(let image):
-                    self?.imageView.image = image
+                    strongSelf.imageView.image = image
                 }
             }
         } else {

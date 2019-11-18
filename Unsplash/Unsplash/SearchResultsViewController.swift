@@ -48,7 +48,6 @@ class SearchResultsViewController: UIViewController {
     // MARK: - Collection view
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Photo>! = nil
-    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Photo>! = nil
     @IBOutlet weak var collectionView: UICollectionView!
     
     private func configureCollectionView() {
@@ -57,15 +56,12 @@ class SearchResultsViewController: UIViewController {
     }
     
     func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalWidth(1.0))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -85,10 +81,10 @@ class SearchResultsViewController: UIViewController {
         }
         
         // initial data
-        currentSnapshot = NSDiffableDataSourceSnapshot<Section, Photo>()
-        currentSnapshot.appendSections([.main])
-        currentSnapshot.appendItems(searchDataSource.photos)
-        dataSource.apply(currentSnapshot, animatingDifferences: false)
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Photo>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(searchDataSource.photos)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     // MARK: - Search
@@ -103,10 +99,11 @@ class SearchResultsViewController: UIViewController {
     
     func resetSearchResults() {
         searchDataSource.resetSearch()
-        currentSnapshot.deleteAllItems()
-        currentSnapshot.appendSections([.main])
-        currentSnapshot.appendItems(searchDataSource.photos)
-        dataSource.apply(currentSnapshot, animatingDifferences: true)
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(searchDataSource.photos)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 
@@ -119,9 +116,10 @@ extension SearchResultsViewController: PhotosDataSourceDelegate {
     }
     
     func didLoadPhotos(_ newPhotos: [UnsplashKit.Photo]) {
-        if newPhotos.isEmpty == false {
-            currentSnapshot.appendItems(newPhotos)
-            dataSource.apply(currentSnapshot, animatingDifferences: true)
-        }
+        var snapshot = dataSource.snapshot()
+        snapshot.deleteAllItems()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(searchDataSource.photos)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

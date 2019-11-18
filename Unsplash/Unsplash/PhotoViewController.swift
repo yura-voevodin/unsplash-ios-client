@@ -22,22 +22,33 @@ class PhotoViewController: UIViewController {
     }
     
     private func setup() {
+        activityIndicator.startAnimating()
+        
         if let photo = photo, let url = photo.urls[.regular] {
             downloader.download(with: url) { [weak self] (result) in
-                switch result {
-                case .failure:
-                    self?.imageView.image = nil
-                case .success(let image):
-                    self?.imageView.image = image
-                }
+                self?.process(result)
             }
         } else {
             imageView.image = nil
         }
     }
-
+    
+    private func process(_ result: Result<UIImage?, Error>) {
+        activityIndicator.stopAnimating()
+        switch result {
+        case .failure:
+            imageView.image = nil
+        case .success(let image):
+            imageView.image = image
+        }
+    }
+    
     // MARK: - Image
     
     @IBOutlet weak var imageView: UIImageView!
     private var downloader = UnsplashKit.ImageDownloader()
+    
+    // MARK: - Activity
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 }
