@@ -18,7 +18,7 @@ Search: https://unsplash.com/documentation#search
 - [x] Implement search. ( request #2) 
 - [x] The request should be sent, if was entered more than three characters
 - [x] The number of pictures in a row - 1.
-- [ ] Needs implement the removing of pictures in the search mode. Deletion is relevant only for the current search result.
+- [x] Needs implement the removing of pictures in the search mode. Deletion is relevant only for the current search result.
 
 ## General requirements
 - [x] By tap on the picture should shown it on full screen.
