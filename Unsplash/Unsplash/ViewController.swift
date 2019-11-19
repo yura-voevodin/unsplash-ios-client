@@ -155,6 +155,15 @@ class ViewController: UIViewController {
         // Always visible search bar
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    // MARK: - Context menu
+    
+    func makeContextMenu(for photo: Photo) -> UIMenu {
+        let delete = UIAction(title: "Delete Photo", image: UIImage(systemName: "trash"), attributes: .destructive) { action in
+            self.searchResultsViewController.delete(photo)
+        }
+        return UIMenu(title: "", children: [delete])
+    }
 }
 
 // MARK: - PhotosDataSourceDelegate
@@ -188,6 +197,18 @@ extension ViewController: UICollectionViewDelegate {
             let photo = searchDataSource.photos[indexPath.row]
             performSegue(withIdentifier: "showPhoto", sender: photo)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        guard collectionView == searchResultsViewController.collectionView else {
+            return nil
+        }
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
+            let photo = self.searchDataSource.photos[indexPath.row]
+            return self.makeContextMenu(for: photo)
+        })
     }
 }
 

@@ -105,6 +105,17 @@ class SearchResultsViewController: UIViewController {
         snapshot.appendItems(searchDataSource.photos)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
+    
+    // MARK: - Delete
+    
+    func delete(_ photo: Photo) {
+        if let index = searchDataSource.photos.firstIndex(of: photo) {
+            searchDataSource.photos.remove(at: index)
+            var snapshot = dataSource.snapshot()
+            snapshot.deleteItems([photo])
+            dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
 }
 
 // MARK: - PhotosDataSourceDelegate
