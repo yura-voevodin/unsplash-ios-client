@@ -13,7 +13,7 @@ class UnsplashKitTests: XCTestCase {
     
     override class func setUp() {
         // TODO: Add access key
-        UnsplashKit.setup(accessKey: "395000f31162ea8ce8d171ca3ab2368578273b0a88563867f9e36b5bdbaf4c8a")
+        UnsplashKit.setup(accessKey: "")
     }
 
     func testPhotosRequest() {

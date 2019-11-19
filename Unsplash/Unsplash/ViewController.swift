@@ -28,8 +28,8 @@ class ViewController: UIViewController {
     }
     
     private func setup() {
-        // Setup
-        UnsplashKit.setup(accessKey: "395000f31162ea8ce8d171ca3ab2368578273b0a88563867f9e36b5bdbaf4c8a")
+        // TODO: Add access key
+        UnsplashKit.setup(accessKey: "")
         
         // Configure cache
         UnsplashKit.ImageDownloader.configureCache()
